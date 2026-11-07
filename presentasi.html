@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Presentation Portfolio – Latifah</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#010612;--m:#9fb0c8;--b:#2563eb;--c:#22d3ee;--gl:rgba(255,255,255,.06);--ln:rgba(120,190,255,.18);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:#fff;font-family:Inter,system-ui,sans-serif;overflow-x:hidden}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+#sp{position:fixed;inset:0;background:#000;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .9s}
+#sp.out{opacity:0;pointer-events:none}#pct{font-size:clamp(3.5rem,10vw,8rem);font-weight:800}
+#sp p{color:var(--m);letter-spacing:.3em;font-size:.8rem;text-transform:uppercase}
+
+/* NAV RESPONSIVE UNTUK LATIFAH (HP, TABLET, LAPTOP) */
+nav{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);z-index:50;display:flex;gap:4px;padding:5px;border-radius:99px;background:var(--gl);border:1px solid var(--ln);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);max-width:92vw;overflow-x:auto;-webkit-overflow-scrolling:touch}
+nav::-webkit-scrollbar{display:none}
+nav a{color:#fff;text-decoration:none;font-weight:700;font-size:.85rem;padding:8px 14px;border-radius:99px;white-space:nowrap}
+nav a.on{background:rgba(37,99,235,.3);box-shadow:inset 0 0 0 1px rgba(96,165,250,.45)}
+
+section{position:relative;z-index:1;padding:100px 5vw 50px;min-height:100vh}
+.w{max-width:1200px;margin:auto}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:2.5rem;align-items:center;min-height:80vh}
+h1{font-size:clamp(2.2rem,5.5vw,5rem);line-height:1.1;font-weight:800;letter-spacing:-.03em}
+.g{background:linear-gradient(90deg,#2563eb,#22d3ee);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{font-size:clamp(1.2rem,3vw,1.6rem);margin:.8rem 0;color:#7dd3fc;font-weight:500}
+.d{color:var(--m);line-height:1.75;max-width:560px;font-size:clamp(.92rem,2vw,1.02rem)}
+.bt{display:flex;gap:12px;margin:1.6rem 0;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:12px;font:700 .95rem Inter,sans-serif;text-decoration:none;color:#fff;border:1px solid var(--ln);background:transparent;cursor:pointer;transition:.25s}
+.btn.p{background:var(--b);border-color:var(--b);box-shadow:0 8px 30px rgba(37,99,235,.4)}.btn:hover{transform:translateY(-3px)}
+.fd{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.fd small{color:var(--b);font-weight:800;letter-spacing:.2em;font-size:.72rem}
+.so{width:40px;height:40px;display:grid;place-items:center;border-radius:10px;border:1px solid var(--ln);background:var(--gl);color:#7dd3fc;transition:.25s}.so:hover{background:var(--b);color:#fff;transform:translateY(-3px)}
+svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* LANYARD STYLING DENGAN UKURAN RESPONSIF (HP & TABLET) */
+.lan{position:relative;height:580px;display:flex;justify-content:center}
+.sw{position:absolute;top:-120px;transform-origin:50% 0;display:flex;flex-direction:column;align-items:center;opacity:0;transform:translateY(-110vh);cursor:pointer}
+body.ready .sw{animation:drop 4.2s cubic-bezier(.3,.7,.3,1) forwards}
+@keyframes drop{0%{opacity:1;transform:translateY(-110vh)}22%{opacity:1;transform:rotate(16deg)}42%{opacity:1;transform:rotate(-12deg)}60%{opacity:1;transform:rotate(7deg)}78%{opacity:1;transform:rotate(-3deg)}100%{opacity:1;transform:none}}
+
+/* CONTAINER TALI LANYARD */
+.st{width:42px;height:320px;display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(180deg,#1d4ed8 0 120px,#fff 120px 240px);border-inline:1px solid #0b1f5c;overflow:hidden;background-size:cover;background-position:center}
+.st span{writing-mode:vertical-rl;font-weight:800;font-size:.6rem;letter-spacing:.1em;color:#0a1a52;text-shadow:0 0 3px #fff,0 0 3px #fff;line-height:1}
+.lg{width:28px;height:28px;border-radius:50%;background:#fff;color:#1d4ed8;display:grid;place-items:center;font-weight:800;font-size:.75rem;margin:-4px 0 -2px;border:2px solid #1d4ed8;z-index:2;background-size:cover;background-position:center}
+.cl{width:28px;height:16px;background:linear-gradient(#bbb,#666);border-radius:4px}.rg{width:13px;height:22px;border:3px solid #ccc;border-radius:8px}
+
+.fl{perspective:1100px}.in{width:250px;height:360px;position:relative;transform-style:preserve-3d;transition:transform 1s cubic-bezier(.34,1.7,.5,1)}
+.fl.f .in{transform:rotateY(180deg)}
+
+/* KARTU DEPAN DAN BELAKANG */
+.fc{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;padding:16px;overflow:hidden;background:linear-gradient(160deg,#14325f,#050c20 65%);border:1px solid rgba(125,211,252,.4);box-shadow:0 30px 80px rgba(34,211,238,.25);background-size:cover!important;background-position:center!important}
+.fc.bk{transform:rotateY(180deg);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px}
+.tg{font-size:.6rem;font-weight:800;letter-spacing:.18em;color:#7dd3fc}.fc h3{font-size:1.35rem;line-height:1.05;margin:.3rem 0 1rem}
+.av{width:95px;height:95px;border-radius:50%;margin:0 auto;display:grid;place-items:center;font-size:2.4rem;font-weight:800;background:radial-gradient(circle at 50% 35%,#7dd3fc,#2563eb 70%);background-size:cover;background-position:center}
+.nm{margin-top:.8rem;text-align:center;background:#eef6ff;color:#0a1a52;font-weight:800;font-size:.75rem;padding:5px;border-radius:4px}
+.vt{position:absolute;right:10px;top:55px;writing-mode:vertical-rl;font-size:1.8rem;font-weight:800;color:#7dd3fc;letter-spacing:.05em}
+.hint{position:absolute;bottom:-30px;left:0;right:0;text-align:center;color:var(--m);font-size:.7rem}
+
+/* SECTIONS GRID RESPONSIVE */
+.ey{color:var(--c);font-weight:800;letter-spacing:.2em;font-size:.78rem}
+h2{font-size:clamp(1.8rem,4vw,3.2rem);margin:.4rem 0 1.6rem;letter-spacing:-.02em}
+.gr{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.bx{padding:22px;border-radius:16px;background:var(--gl);border:1px solid var(--ln);backdrop-filter:blur(10px);margin-bottom:18px}.gr .bx{margin:0}
+.bx h3{display:flex;align-items:center;gap:10px;font-size:1.15rem;margin-bottom:12px}
+.bx h3 b{font-size:.75rem;color:var(--c);border:1px solid var(--ln);border-radius:6px;padding:3px 8px}
+.bx h4{margin:14px 0 6px;color:#7dd3fc;font-size:.92rem}.bx p,.bx li{color:var(--m);line-height:1.65;font-size:.9rem}.bx ul,.bx ol{padding-left:18px}.bx li b,.bx p b{color:#fff}
+.k{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid var(--ln);color:var(--m);font-size:.88rem}.k b{color:#fff;white-space:nowrap}
+table{width:100%;border-collapse:collapse}td{padding:8px;border-bottom:1px solid var(--ln);color:var(--m);font-size:.88rem;vertical-align:top}td:first-child{color:#fff;font-weight:700;width:32%}
+
+/* PORTOFOLIO DENGAN INTERAKSI TOUCH & RESPONSIVE */
+.pf-card{cursor:pointer;transition:transform .3s ease, border-color .3s ease}
+.pf-card:hover,.pf-card:active{transform:translateY(-4px);border-color:var(--c)}
+.pf{height:160px;border-radius:12px;margin-bottom:12px;display:grid;place-items:center;font-weight:800;font-size:1rem;background:linear-gradient(135deg,#0b3b8f,#0891b2);background-size:cover!important;background-position:center!important;overflow:hidden;position:relative}
+.pf span{background:rgba(0,0,0,.6);padding:5px 12px;border-radius:6px;backdrop-filter:blur(4px);transition:.3s}
+
+/* MODAL LIGHTBOX FULLSCREEN AGAR PAS DI LAYAR HP / TABLET / IPAD / LAPTOP */
+#img-modal{position:fixed;inset:0;z-index:999;background:rgba(1,6,18,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s ease;padding:16px}
+#img-modal.open{opacity:1;pointer-events:auto}
+#img-modal img{max-width:92vw;max-height:80vh;object-fit:contain;border-radius:10px;box-shadow:0 20px 50px rgba(0,0,0,.9);border:1px solid rgba(125,211,252,.3);transform:scale(.94);transition:transform .35s ease}
+#img-modal.open img{transform:scale(1)}
+#img-modal-caption{margin-top:14px;font-size:clamp(.9rem,2.5vw,1.1rem);font-weight:700;color:#7dd3fc;text-shadow:0 2px 10px rgba(0,0,0,.8);text-align:center}
+#img-modal-close{position:absolute;top:16px;right:20px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid var(--ln);color:#fff;font-size:1.4rem;display:grid;place-items:center;cursor:pointer;transition:.25s}
+#img-modal-close:hover{background:rgba(239,68,68,.8)}
+
+form,.cm{display:flex;flex-direction:column;gap:10px}
+input,textarea{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--ln);background:rgba(255,255,255,.05);color:#fff;font:inherit;font-size:.9rem}textarea{min-height:100px;resize:vertical}
+input:focus,textarea:focus{outline:2px solid var(--b)}
+.lk{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}.lk a{display:flex;flex-direction:column;align-items:center;gap:5px;padding:12px 4px;border-radius:10px;border:1px solid var(--ln);background:var(--gl);color:#fff;text-decoration:none;font-size:.78rem;font-weight:700}.lk a:hover{background:var(--b)}
+.ct{display:flex;gap:10px;padding:12px 0;border-bottom:1px solid var(--ln)}.ct i{width:36px;height:36px;border-radius:50%;background:var(--b);display:grid;place-items:center;font-style:normal;font-weight:800;flex:none;background-size:cover}.ct p{margin:2px 0 0}
+footer{position:relative;z-index:1;border-top:1px solid var(--ln);padding:24px 5vw calc(24px + env(safe-area-inset-bottom,0px));display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;color:var(--m);font-size:.85rem;background:rgba(1,6,18,.7)}
+footer nav{position:static;transform:none;background:none;border:0;backdrop-filter:none}footer a{color:#fff}
+.rv{opacity:0;transform:translateY(24px);transition:.7s}.rv.s{opacity:1;transform:none}
+
+/* MEDIA QUERIES PENYESUAIAN KHUSUS MOBILE ANDROID, IPHONE, TABLET, IPAD */
+@media(max-width:960px){
+  section{padding:90px 5vw 40px}
+  .hero{grid-template-columns:1fr;gap:2rem;text-align:center}
+  .d,.sub{margin-left:auto;margin-right:auto}
+  .bt,.fd{justify-content:center}
+  .lan{height:460px;margin-top:-10px}
+  .sw{top:-100px}
+  .st{height:250px;width:38px}
+  .in{width:220px;height:320px}
+  .vt{font-size:1.5rem;top:45px}
+  .av{width:80px;height:80px;font-size:2rem}
+}
+@media(max-width:480px){
+  nav a{padding:7px 11px;font-size:.8rem}
+  .btn{padding:10px 18px;font-size:.88rem;width:100%;justify-content:center}
+  .lk{grid-template-columns:1fr;gap:8px}
+  .lk a{flex-direction:row;justify-content:center;gap:10px;padding:10px}
+  footer{flex-direction:column;text-align:center;gap:12px}
+}
+</style></head><body>
+<canvas id="bg"></canvas>
+<div id="sp"><div id="pct">0%</div><p>memuat assets</p></div>
+<nav><a href="#home" class="on">Home</a><a href="#about">About Design</a><a href="#portfolio">Portfolio</a><a href="#contact">Contact</a></nav>
+
+<section id="home"><div class="w hero"><div>
+<h1><span class="g">Welcome to</span><br>My Presentation</h1>
+<h2 class="sub">Presentation Design</h2>
+<p class="d">halo semua kenalin nama aku latifah jurusan informatika fakultas teknologi informasi dan nomor pokok mahasiswa (npm) 2455201001131. disini saya akan mempresentasikan mata kuliah laboratorium kewirausahaan yang diampu oleh dosen Bpk. Muhammad Fikri Akbar, S.E., M.M.</p>
+<div class="bt"><a class="btn p" href="#about">Lihat Design <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<a class="btn" href="https://wa.me/message/FV4CWOA3DBZIN1" target="_blank" rel="noopener">Call Me <svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg></a></div>
+<div class="fd"><small>FIND ME</small>
+<a class="so" href="https://www.instagram.com/ihysmiml?igsh=aGpvMmZ1ZWlicWJm" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></a>
+<a class="so" href="https://www.tiktok.com/@hemz.20?_r=1&_t=ZS-9BD7DnFfdkC" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5M14 3c.3 2.5 2 4.2 5 4.5"/></svg></a>
+<a class="so" href="https://wa.me/message/FV4CWOA3DBZIN1" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M3 21l1.6-5A8.5 8.5 0 1 1 8 19.4zM9 9c0 3 3 6 6 6l1.2-1.4-2-1-.9.8c-1-.4-2-1.4-2.4-2.4l.8-.9-1-2z"/></svg></a></div>
+</div>
+<div class="lan"><div class="sw" id="sw">
+
+<!-- CONTAINER TALI LANYARD -->
+<div class="st" id="strap-container"><span id="strap-text">UNIVERSITAS MERDEKA PASURUAN • UNIVERSITAS MERDEKA PASURUAN</span></div>
+<div class="lg" id="strap-logo">U</div><div class="cl"></div><div class="rg"></div>
+
+<!-- CONTAINER KARTU ID CARD -->
+<div class="fl" id="fl"><div class="in">
+<!-- KARTU DEPAN -->
+<div class="fc" id="card-front">
+  <div class="card-content">
+    <div class="tg">UNMER PASURUAN</div>
+    <h3>TEKNIK<br>INFORMATIKA</h3>
+    <div class="av" id="avatar-img">L</div>
+    <div class="nm">NPM 2455201001131</div>
+    <div class="vt">LATIFAH</div>
+  </div>
+</div>
+<!-- KARTU BELAKANG -->
+<div class="fc bk" id="card-back">
+  <div class="av">U</div>
+  <div class="tg">UNIVERSITAS MERDEKA PASURUAN</div>
+  <p class="d" style="font-size:.85rem">Kartu Mahasiswa<br>Informatika • FTI</p>
+</div>
+</div><div class="hint">klik kartu untuk memutar</div></div></div></div></div></section>
+
+<section id="about"><div class="w">
+<div class="ey rv">ABOUT DESIGN</div><h2 class="rv">Presentation Design</h2>
+<div class="bx rv"><h3><b>I</b>Latar Belakang</h3><div class="gr" style="gap:24px">
+<div><h4>Masalah (Problem)</h4><ul><li>Pelaku UMKM, pengelola bisnis baru, dan penyelenggara event sering terkendala dalam menyampaikan pesan promosi secara visual.</li><li>Masalah umum: desain kurang profesional, tata letak berantakan, keterbatasan waktu, serta ketidakmampuan mengoperasikan software desain profesional.</li></ul></div>
+<div><h4>Peluang (Opportunity)</h4><ul><li>Kebutuhan media promosi digital (Instagram, WhatsApp) dan media cetak (spanduk, banner, poster) terus meningkat pesat.</li><li>Banyak pihak membutuhkan desainer lepas (freelance) yang responsif, komunikatif, cepat, dan berestetika modern tanpa biaya mahal.</li></ul></div></div></div>
+<div class="bx rv"><h3><b>II</b>Analisis Pasar (STP)</h3><div class="gr" style="gap:24px">
+<div><h4>Segmentasi Pasar</h4><ul><li><b>Demografis:</b> UMKM/bisnis lokal, pemilik toko online, panitia event, brand fashion/kuliner, organisasi pemuda.</li><li><b>Geografis:</b> online seluruh Indonesia serta pasar lokal Kota/Kabupaten Pasuruan dan sekitarnya.</li><li><b>Psikografis:</b> klien yang mengutamakan kerapian visual, ingin promosi practical, dan menghargai desain berkarakter.</li></ul></div>
+<div><h4>Target Pasar</h4><p>UMKM yang sedang membangun identitas merek (branding) serta penyelenggara acara yang membutuhkan materi promosi fisik maupun digital.</p><h4>Positioning</h4><p>Penyedia jasa desain grafis yang adaptif, komunikatif, dan berfokus pada hasil visual estetik serta siap pakai (print-ready / upload-ready).</p></div></div></div>
+<div class="bx rv"><h3><b>III</b>Alur Kerja &amp; Proses Kreatif</h3><ol>
+<li><b>Briefing &amp; Diskusi Konsep:</b> pengumpulan logo, teks, dan referensi gaya visual dari klien.</li>
+<li><b>Riset Visual &amp; Layouting:</b> analisis audiens, palet warna, tipe huruf, dan tata letak dasar.</li>
+<li><b>Eksekusi Desain &amp; Drafting:</b> draft awal dengan software profesional.</li>
+<li><b>Revisi &amp; Finalisasi:</b> draft diajukan ke klien hingga disetujui.</li>
+<li><b>Penyerahan File Master:</b> hasil akhir format HD: PNG, JPG, PDF siap cetak.</li></ol></div>
+<div class="bx rv"><h3><b>IV</b>Strategi Pemasaran (4P)</h3><div class="gr">
+<div><h4>Product</h4><p>Desain grafis fleksibel: branding, media promosi cetak, dan aset media sosial dengan jaminan file HD.</p></div>
+<div><h4>Price</h4><p>Harga kompetitif berbasis eceran dan paket hemat untuk berbagai skala anggaran.</p></div>
+<div><h4>Place</h4><p>Penjualan online lewat WhatsApp, portofolio di Instagram, serta jejaring personal.</p></div>
+<div><h4>Promotion</h4><p>Konten before-after, showcase rutin, diskon paket bundling, dan word of mouth.</p></div></div></div>
+<div class="bx rv"><h3><b>V</b>Skema Harga &amp; Paket Jasa</h3><div class="gr" style="gap:24px"><div><h4>A. Price List Eceran</h4>
+<div class="k"><span>Logo (Basic Branding)<br><small>Konsep visual, PNG transparan, variasi warna</small></span><b>Rp 100.000 – 200.000</b></div>
+<div class="k"><span>Pamflet / Poster / Flyer<br><small>Format Feed IG / Story / WA</small></span><b>Rp 35.000 – 60.000</b></div>
+<div class="k"><span>Spanduk / Banner Cetak<br><small>Skala besar, resolusi tinggi, siap cetak</small></span><b>Rp 40.000 – 75.000</b></div>
+<div class="k"><span>Feed Instagram (Carousel / 3 Feeds)</span><b>Rp 75.000 – 120.000</b></div></div>
+<div><h4>B. Paket Hemat (Bundling)</h4>
+<p><b>1. Starter Pack UMKM: Rp 200.000</b><br>1 Logo utama + variasi sekunder, 1 Banner/Spanduk toko, 1 Pamflet promosi produk / daftar menu.</p><br>
+<p><b>2. Event Pack: Rp 135.000</b><br>1 Pamflet utama acara, 1 Banner panggung / spanduk selamat datang, 1 E-Certificate / MMT backdrop.</p></div></div></div>
+<div class="bx rv"><h3><b>VI</b>Manajemen Kewirausahaan &amp; Operasional</h3><div class="gr" style="gap:24px">
+<div><h4>A. Modal Awal</h4><div class="k">Laptop / Komputer (aset pribadi)<b>Rp 0</b></div><div class="k">Software Desain<b>Rp 50.000 / bln</b></div><div class="k">Kuota Internet &amp; Listrik<b>Rp 100.000 / bln</b></div><div class="k">Pemasaran &amp; Promosi<b>Rp 50.000</b></div><div class="k"><b>Total Modal Awal</b><b>Rp 200.000</b></div>
+<h4>B. Proyeksi &amp; Biaya Operasional</h4><div class="k">Omzet per Bulan<b>Rp 710.000</b></div><div class="k">Biaya Variabel (HPP)<b>Rp 110.000</b></div><div class="k">Total Biaya Operasional<b>Rp 160.000</b></div></div>
+<div><h4>C. Analisis Keuntungan</h4><div class="k">Pendapatan Kotor<b>Rp 710.000</b></div><div class="k">Biaya Operasional<b>Rp 160.000</b></div><div class="k"><b>Laba Bersih</b><b>Rp 550.000</b></div><div class="k"><b>Profit Margin</b><b>~77,4%</b></div>
+<h4>D. Struktur &amp; Pembagian Kerja</h4><ul><li><b>Client Relation:</b> briefing, konsultasi WhatsApp/DM, jadwal deadline.</li><li><b>Creative Production:</b> desain visual, layouting, revisi.</li><li><b>Finance &amp; Asset:</b> arus kas (DP &amp; pelunasan) dan arsip cloud storage.</li></ul></div></div></div>
+<div class="bx rv"><h3><b>VII</b>Analisis SWOT &amp; Manajemen Risiko</h3><table>
+<tr><td>Strengths</td><td>Penguasaan teknis software desain, komunikasi responsif, dan pengerjaan tepat waktu.</td></tr>
+<tr><td>Weaknesses</td><td>Kapasitas produksi masih bergantung pada desainer tunggal (solo designer).</td></tr>
+<tr><td>Opportunities</td><td>Tren modernisasi visual UMKM dan tingginya frekuensi event bulanan.</td></tr>
+<tr><td>Threats</td><td>Maraknya template instan gratisan dan persaingan harga dari desainer lepas lain.</td></tr></table>
+<h4 style="margin-top:16px">Mitigation Plan</h4><ul><li><b>Revisi berlebihan:</b> maksimal 2x revisi minor sesuai S&amp;K awal.</li><li><b>Hit &amp; run / pembayaran tertunda:</b> DP 50% di awal sebelum draft.</li><li><b>Keterlambatan deadline:</b> to-do list harian dan buffer time 1 hari untuk proyek kompleks.</li></ul></div>
+</div></section>
+
+<!-- SECTION PORTOFOLIO DENGAN INTERAKSI KLIK FULLSCREEN -->
+<section id="portfolio"><div class="w"><div class="ey rv">PORTFOLIO</div><h2 class="rv">Portofolio Karya</h2><div class="gr">
+<div class="bx rv pf-card" onclick="openLightbox(ASSETS.portfolio1, 'Pamflet Ambawara Adventure')">
+  <div class="pf" id="pf-img-1"><span>AMBAWARA</span></div>
+  <h3>Pamflet Ambawara Adventure</h3>
+  <p>Desain bertema outdoor expedition dengan infografis perlengkapan, tata letak informasi bertingkat, dan estetika alam terbuka.</p>
+</div>
+<div class="bx rv pf-card" onclick="openLightbox(ASSETS.portfolio2, 'Pamflet Karang Taruna Purworejo')">
+  <div class="pf" id="pf-img-2"><span>PURWOREJO</span></div>
+  <h3>Pamflet Karang Taruna Purworejo</h3>
+  <p>Desain kegiatan kemasyarakatan dan turnamen lokal dengan gaya visual dinamis, informatif, dan komunikatif.</p>
+</div>
+<div class="bx rv pf-card" onclick="openLightbox(ASSETS.portfolio3, 'Pamflet Karang Taruna Kota')">
+  <div class="pf" id="pf-img-3"><span>KOTA</span></div>
+  <h3>Pamflet Karang Taruna Kota</h3>
+  <p>Promosi acara pemuda tingkat perkotaan dengan perpaduan warna modern dan elemen visual kontras.</p>
+</div>
+</div></div></section>
+
+<!-- MODAL LIGHTBOX FOTO FULLSCREEN -->
+<div id="img-modal" onclick="closeLightbox(event)">
+  <button id="img-modal-close" onclick="closeLightbox(event)">&times;</button>
+  <img id="img-modal-target" src="" alt="Portfolio Full Preview">
+  <div id="img-modal-caption"></div>
+</div>
+
+<section id="contact"><div class="w"><div class="ey rv">CONTACT</div><h2 class="rv">Hubungi saya</h2><div class="gr">
+<div class="bx rv"><h3>Hubungi</h3>
+<form id="cf"><input id="cn" placeholder="Nama Anda" required><input id="ce" type="email" placeholder="Email Anda" required><textarea id="cp" placeholder="Pesan Anda" required></textarea>
+<button class="btn p" type="submit">Kirim Pesan <svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg></button><p id="cs" style="font-size:.85rem"></p></form>
+<div class="lk"><a href="https://www.instagram.com/ihysmiml?igsh=aGpvMmZ1ZWlicWJm" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>Instagram</a>
+<a href="https://www.tiktok.com/@hemz.20?_r=1&_t=ZS-9BD7DnFfdkC" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5M14 3c.3 2.5 2 4.2 5 4.5"/></svg>TikTok</a>
+<a href="https://wa.me/message/FV4CWOA3DBZIN1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M3 21l1.6-5A8.5 8.5 0 1 1 8 19.4z"/></svg>WhatsApp</a></div></div>
+<div class="bx rv"><h3>Komentar</h3>
+<form class="cm" id="kf"><input id="kn" placeholder="Nama" required><textarea id="kt" placeholder="Komentar" required></textarea><input id="kp" type="file" accept="image/*"><button class="btn p" type="submit">Kirim Komentar</button></form>
+<div id="kl"></div></div></div></div></section>
+
+<footer><span>© Latifah.dev • Informatika Unmer Pasuruan</span>
+<nav><a href="#home">Home</a><a href="#about">About</a><a href="#portfolio">Portfolio</a><a href="#contact">Contact</a></nav>
+<span style="display:flex;gap:10px"><a class="so" href="https://www.instagram.com/ihysmiml?igsh=aGpvMmZ1ZWlicWJm" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+<a class="so" href="https://www.tiktok.com/@hemz.20?_r=1&_t=ZS-9BD7DnFfdkC" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5M14 3c.3 2.5 2 4.2 5 4.5"/></svg></a>
+<a class="so" href="https://wa.me/message/FV4CWOA3DBZIN1" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M3 21l1.6-5A8.5 8.5 0 1 1 8 19.4z"/></svg></a></span></footer>
+
+<script>
+// =========================================================================
+// 🛠️ CONFIGURATION GAMBAR (ISIKAN LINK FOTO KAMU DI SINI)
+// =========================================================================
+var ASSETS = {
+  lanyardStrapImage: 'lanyard.png', 
+  cardFrontImage: 'latifah.png', 
+  cardBackImage: 'latifah1.png',
+  profilePhoto: '', 
+  portfolio1: 'ambawara.jpeg', 
+  portfolio2: 'purworejo.jpeg', 
+  portfolio3: 'kota.jpeg'  
+};
+
+(function applyAssets(){
+  if(ASSETS.lanyardStrapImage){
+    document.getElementById('strap-container').style.backgroundImage = 'url('+ASSETS.lanyardStrapImage+')';
+    document.getElementById('strap-text').style.display = 'none';
+  }
+  if(ASSETS.cardFrontImage){
+    document.getElementById('card-front').style.backgroundImage = 'url('+ASSETS.cardFrontImage+')';
+    var content = document.querySelector('#card-front .card-content');
+    if(content) content.style.display = 'none'; 
+  }
+  if(ASSETS.cardBackImage){
+    document.getElementById('card-back').style.backgroundImage = 'url('+ASSETS.cardBackImage+')';
+    document.getElementById('card-back').innerHTML = ''; 
+  }
+  if(ASSETS.profilePhoto){
+    var av = document.getElementById('avatar-img');
+    av.style.backgroundImage = 'url('+ASSETS.profilePhoto+')';
+    av.textContent = '';
+  }
+  if(ASSETS.portfolio1){
+    document.getElementById('pf-img-1').style.backgroundImage = 'url('+ASSETS.portfolio1+')';
+    document.getElementById('pf-img-1').innerHTML = '';
+  }
+  if(ASSETS.portfolio2){
+    document.getElementById('pf-img-2').style.backgroundImage = 'url('+ASSETS.portfolio2+')';
+    document.getElementById('pf-img-2').innerHTML = '';
+  }
+  if(ASSETS.portfolio3){
+    document.getElementById('pf-img-3').style.backgroundImage = 'url('+ASSETS.portfolio3+')';
+    document.getElementById('pf-img-3').innerHTML = '';
+  }
+})();
+
+// =========================================================================
+// 🔍 LIGHTBOX MODAL SCRIPT (FULLSCREEN PHOTO PREVIEW)
+// =========================================================================
+function openLightbox(imgSrc, title) {
+  var modal = document.getElementById('img-modal');
+  var targetImg = document.getElementById('img-modal-target');
+  var caption = document.getElementById('img-modal-caption');
+  
+  if (imgSrc) {
+    targetImg.src = imgSrc;
+    caption.textContent = title || '';
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden'; 
+  }
+}
+
+function closeLightbox(e) {
+  if (e && e.target && e.target.tagName === 'IMG') return; 
+  var modal = document.getElementById('img-modal');
+  modal.classList.remove('open');
+  document.body.style.overflow = ''; 
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+var $=function(i){return document.getElementById(i)};
+// splash
+var v=0,t=setInterval(function(){v+=Math.ceil(Math.random()*4);if(v>=100){v=100;clearInterval(t);setTimeout(function(){$('sp').classList.add('out');document.body.classList.add('ready')},350)}$('pct').textContent=v+'%'},45);
+// flip
+$('fl').onclick=function(){this.classList.toggle('f')};
+// circuit background
+(function(){var cv=$('bg'),x=cv.getContext('2d'),W,H,paths=[],pl=[],S=48;
+function mk(){W=cv.width=innerWidth;H=cv.height=innerHeight;paths=[];pl=[];
+for(var i=0;i<26;i++){var px=Math.round(Math.random()*W/S)*S,py=Math.round(Math.random()*H/S)*S,pts=[[px,py]],dx=Math.random()<.5?1:0;
+for(var k=0;k<5+Math.random()*5;k++){var d=(Math.random()<.5?-1:1)*S*(1+(Math.random()*3|0));if(dx)px+=d;else py+=d;pts.push([px,py]);dx=1-dx;if(Math.random()<.3){pts.push([px+(d>0?S/2:-S/2),py+S/2]);px+=(d>0?S/2:-S/2);py+=S/2}}
+paths.push(pts)}
+paths.forEach(function(p,i){pl.push({p:i,s:Math.random()*(p.length-1),v:.006+Math.random()*.01})})}
+mk();addEventListener('resize',mk);
+(function f(){x.fillStyle='#010612';x.fillRect(0,0,W,H);var g=x.createRadialGradient(W*.5,H*.4,0,W*.5,H*.4,W*.7);g.addColorStop(0,'rgba(8,60,140,.35)');g.addColorStop(1,'transparent');x.fillStyle=g;x.fillRect(0,0,W,H);
+x.strokeStyle='rgba(34,211,238,.2)';x.lineWidth=1.4;paths.forEach(function(p){x.beginPath();p.forEach(function(q,i){x[i?'lineTo':'moveTo'](q[0],q[1])});x.stroke();
+[p[0],p[p.length-1]].forEach(function(q){x.beginPath();x.arc(q[0],q[1],4,0,6.3);x.stroke()})});
+pl.forEach(function(o){var p=paths[o.p];o.s+=o.v;if(o.s>=p.length-1)o.s=0;var i=o.s|0,f=o.s-i,a=p[i],b=p[i+1],px=a[0]+(b[0]-a[0])*f,py=a[1]+(b[1]-a[1])*f;
+x.shadowColor='#22d3ee';x.shadowBlur=14;x.fillStyle='#a5f3fc';x.beginPath();x.arc(px,py,2.6,0,6.3);x.fill();x.shadowBlur=0});
+requestAnimationFrame(f)})()})();
+// reveal + nav
+var io=new IntersectionObserver(function(e){e.forEach(function(n){if(n.isIntersecting)n.target.classList.add('s')})},{threshold:.1});
+document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
+var ln=document.querySelectorAll('nav:not(footer nav) a'),so=new IntersectionObserver(function(e){e.forEach(function(n){if(n.isIntersecting)ln.forEach(function(a){a.classList.toggle('on',a.hash==='#'+n.target.id)})})},{threshold:.3});
+document.querySelectorAll('section').forEach(function(s){so.observe(s)});
+// contact -> WhatsApp
+$('cf').onsubmit=function(e){e.preventDefault();var m='Halo, saya '+$('cn').value+' ('+$('ce').value+'). '+$('cp').value;
+try{navigator.clipboard.writeText(m)}catch(x){}
+$('cs').textContent='Pesan disalin. WhatsApp dibuka, tempel pesanmu di sana.';window.open('https://wa.me/message/FV4CWOA3DBZIN1','_blank');this.reset()};
+// comments (stored per browser)
+var C=[];try{C=JSON.parse(localStorage.getItem('cm')||'[]')}catch(x){}
+function rc(){var l=$('kl');l.innerHTML='';C.slice().reverse().forEach(function(c){var d=document.createElement('div');d.className='ct';var i=document.createElement('i');if(c.p)i.style.backgroundImage='url('+c.p+')';else i.textContent=c.n.charAt(0).toUpperCase();
+var b=document.createElement('div'),n=document.createElement('b'),p=document.createElement('p');n.textContent=c.n;p.textContent=c.t;b.append(n,p);d.append(i,b);l.append(d)})}
+rc();
+$('kf').onsubmit=function(e){e.preventDefault();var f=$('kp').files[0],add=function(p){C.push({n:$('kn').value,t:$('kt').value,p:p||''});try{localStorage.setItem('cm',JSON.stringify(C))}catch(x){}rc();$('kf').reset()};
+if(f&&f.size<400000){var r=new FileReader();r.onload=function(){add(r.result)};r.readAsDataURL(f)}else add()};
+</script></body></html>
